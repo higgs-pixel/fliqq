@@ -82,7 +82,18 @@ jobs:
       - name: Tests (token lint, contrast, formatting)
         run: flutter test
       - name: Build
-        run: flutter build windows --release -v
+        run: |
+          $buildOutput = flutter build windows --release -v 2>&1
+          $ec = $LASTEXITCODE
+          if ($ec -ne 0) {
+            "## Build Error Summary" >> $env:GITHUB_STEP_SUMMARY
+            "```" >> $env:GITHUB_STEP_SUMMARY
+            $tail = ($buildOutput | Select-Object -Last 120) -join "`n"
+            $tail >> $env:GITHUB_STEP_SUMMARY
+            "```" >> $env:GITHUB_STEP_SUMMARY
+            Write-Host $tail
+            exit $ec
+          }
       - name: Upload build logs on failure
         if: failure()
         uses: actions/upload-artifact@v5
