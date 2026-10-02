@@ -8,8 +8,11 @@ cmake_minimum_required(VERSION 3.14)
 set(PROJECT_NAME "rust_lib_fliq")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
+get_filename_component(RUST_DIR "${CMAKE_CURRENT_LIST_DIR}/../../rust" ABSOLUTE)
+file(RELATIVE_PATH RUST_REL_DIR "${CMAKE_CURRENT_SOURCE_DIR}" "${RUST_DIR}")
+
 include("../cargokit/cmake/cargokit.cmake")
-apply_cargokit(${PROJECT_NAME} ../../rust rust_lib_fliq "")
+apply_cargokit(${PROJECT_NAME} "${RUST_REL_DIR}" rust_lib_fliq "")
 
 # List of absolute paths to libraries that should be bundled with the plugin.
 # This list could contain prebuilt libraries, or libraries created by an
