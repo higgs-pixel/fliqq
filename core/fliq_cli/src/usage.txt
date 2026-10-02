@@ -1,0 +1,13 @@
+fliq_cli — Fliq core test and benchmark tool
+
+  fliq_cli serve-send FILE... [--move] [--streams N] [--budget 64M] [--loopback]
+      Show a QR URI (printed) and send FILE(s) to whoever connects with it.
+  fliq_cli serve-recv --out DIR [--yes] [--loopback]
+      Show a QR URI and receive files into DIR.
+  fliq_cli connect URI [--out DIR] [--yes] [FILE...] [--move]
+      Connect using a URI from the other device. Receives if the other side sends,
+      sends FILE(s) if the other side receives.
+  fliq_cli bench [--size 1G] [--streams 4] [--budget 64M] [--synthetic] [--dir DIR] [--keep]
+      Loopback benchmark with per-stage timings and peak memory.
+  fliq_cli crypto-bench
+      Single-core BLAKE3 and Noise record-layer throughput.

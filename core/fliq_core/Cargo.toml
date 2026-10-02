@@ -1,0 +1,34 @@
+[package]
+name = "fliq_core"
+version = "0.1.0"
+edition = "2024"
+publish = false
+rust-version = "1.85"
+
+[lib]
+doctest = false
+
+[dependencies]
+base64 = "0.23.1"
+blake3 = "1.8.7"
+ciborium = "0.2.2"
+crossbeam-channel = "0.5.17"
+fs4 = "1.1.0"
+getrandom = "0.2"
+hkdf = "0.13.0"
+if-addrs = "0.15.0"
+libc = "0.2.189"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_bytes = "0.11.19"
+sha2 = "0.11.0"
+snow = "0.9"
+socket2 = { version = "0.6.5", features = ["all"] }
+thiserror = "2.0.21"
+zeroize = { version = "1.9.0", features = ["derive"] }
+
+[dev-dependencies]
+proptest = "1.11.0"
+tempfile = "3.27.0"
+
+[target."cfg(windows)".dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Storage_FileSystem", "Win32_Foundation", "Win32_UI_Shell"] }

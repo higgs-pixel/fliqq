@@ -1,0 +1,11 @@
+[package]
+name = "fliq_cli"
+version = "0.1.0"
+edition = "2024"
+publish = false
+rust-version = "1.85"
+
+[dependencies]
+blake3 = "1.8.7"
+fliq_core = { path = "../fliq_core" }
+tempfile = "3"

@@ -1,0 +1,6 @@
+core/target/
+*.fliq.part
+app/build/
+app/.dart_tool/
+app/windows/
+app/rust/target/

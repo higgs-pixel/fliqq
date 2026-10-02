@@ -1,0 +1,40 @@
+name: fliq
+description: Offline, end-to-end encrypted file transfer.
+publish_to: none
+version: 0.2.0+1
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_rust_bridge: 2.11.1
+  rust_lib_fliq:
+    path: rust_builder
+  qr_flutter: ^4.1.0
+  file_selector: ^1.0.3
+  path_provider: ^2.1.4
+  path: ^1.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/brand/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+    - family: InterDisplay
+      fonts:
+        - asset: assets/fonts/InterDisplay-Medium.ttf
+          weight: 500

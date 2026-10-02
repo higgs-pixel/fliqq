@@ -1,0 +1,16 @@
+[package]
+name = "rust_lib_fliq"
+version = "0.1.0"
+edition = "2024"
+publish = false
+rust-version = "1.85"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+flutter_rust_bridge = "=2.11.1"
+fliq_core = { path = "../../core/fliq_core" }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(frb_expand)'] }
